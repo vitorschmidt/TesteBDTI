@@ -1,6 +1,6 @@
-###TODO LIST###
+TODO LIST
 
-##Funções:##
+Funções:
 
  * listar todas tarefas, listar tarefas concluídas, listar tarefas não concluídas;
  * Adicionar tareas;
@@ -8,7 +8,7 @@
  * Excluir tarefas;
  * Contar quantas tarefas existem, completas e incompletas;
  
- ##Bibliotécas:##
+ Bibliotécas:
  * react-redux;
  * react-router-dom;
  * redux;
