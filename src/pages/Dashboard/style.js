@@ -74,6 +74,7 @@ export const Container = styled.div`
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      max-width: 900px;
     }
     h2 {
       font-size: 30px;
