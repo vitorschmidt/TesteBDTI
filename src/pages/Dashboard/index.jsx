@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import TotalTasks from "../../components/TotalTasks";
@@ -12,7 +13,6 @@ const Dashboard = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [filter, setFilter] = useState("");
-  const [teste, setTeste] = useState({});
 
   const tasks = useSelector(({ tasks }) => tasks);
 
@@ -21,6 +21,7 @@ const Dashboard = () => {
   // Função que adiciona uma task a lista de tarefas
   const handleAddTask = (event) => {
     event.preventDefault();
+    toast.success("Tarefa adicionada!");
     dispatch(
       addTaskThunk({
         id: tasks.length + 1,
@@ -32,18 +33,15 @@ const Dashboard = () => {
     );
   };
 
-  const showAll = tasks.map((task) => task);
-  console.log(teste);
-
   // função que filtra os elementos recebidos do array do useSelector para criar o filtro dos botões
 
   const taskFilter = tasks.filter((task) => {
     console.log(filter);
-    if (filter) {
+    if (filter || filter === false) {
       return task.isCompleted === filter;
     }
 
-    return task.isCompleted === filter;
+    return task;
   });
 
   // função que mostra os itens filtrados em tela
@@ -80,7 +78,7 @@ const Dashboard = () => {
           backGround="#ee6c4d"
           width="33%"
           className="allTasks"
-          onClick={() => setTeste(showAll)}
+          onClick={() => setFilter("")}
         >
           Todas
         </Button>
