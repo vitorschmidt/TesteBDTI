@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import TotalTasks from "../../components/TotalTasks";
@@ -21,7 +21,7 @@ const Dashboard = () => {
   // Função que adiciona uma task a lista de tarefas
   const handleAddTask = (event) => {
     event.preventDefault();
-    toast.success("Tarefa adicionada!");
+
     dispatch(
       addTaskThunk({
         id: tasks.length + 1,
